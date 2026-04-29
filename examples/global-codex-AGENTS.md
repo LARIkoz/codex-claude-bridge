@@ -30,14 +30,14 @@ Example aliases:
 
 - `orch`, `orchestration` -> `orchestration`
 - `consilium`, `council` -> `consilium`
-- `review`, `code review` -> `consreview`
+- `review`, `code review` -> `review-workflow`
 - `research`, `deep research`, `full research` -> route through the research workflow by intent
 - `simple`, `light`, `quick` -> tier modifier, not a standalone skill
 
 ## Orchestration Routing
 
-- `/s orch review simple` means Consilium-Review light mode, not a single-agent review.
-- `/s orch review` means standard Consilium-Review unless the user explicitly asks for a non-orchestrated review.
+- `/s orch review simple` means your configured orchestrated review workflow in light/simple mode, not a single-agent review.
+- `/s orch review` means your configured standard orchestrated review workflow unless the user explicitly asks for a non-orchestrated review.
 - `/s orch research` means the research workflow.
 - `/s deep research` means deep-tier research by default. Verify current script/tool wiring before claiming add-ons or sources were used.
 
@@ -55,4 +55,3 @@ If research artifacts are degraded, `AUDIT_VERDICT.md` says `INVALID`, or `REDTE
 ## Secret Safety
 
 Never print raw API keys, tokens, private keys, or secret candidate lines in chat.
-

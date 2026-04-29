@@ -15,6 +15,14 @@ The bridge does not install a runtime daemon. It installs durable instructions a
 
 ## Step 1. Add Global Codex Bridge Rules
 
+Before editing global Codex instructions, make a backup and inspect the existing file:
+
+```bash
+mkdir -p ~/.codex
+test -f ~/.codex/AGENTS.md && cp ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak.$(date +%Y%m%d-%H%M%S)
+sed -n '1,220p' ~/.codex/AGENTS.md 2>/dev/null || true
+```
+
 Copy the relevant parts of:
 
 ```text
@@ -36,6 +44,12 @@ Important rules to preserve:
 - Slash aliases should be normalized before exact lookup.
 - Degraded research artifacts must not be shipped as final output.
 - Secrets must never be printed.
+
+After editing, review the diff before continuing:
+
+```bash
+diff -u ~/.codex/AGENTS.md.bak.* ~/.codex/AGENTS.md 2>/dev/null || true
+```
 
 ## Step 2. Add Workspace Rules
 
@@ -93,7 +107,7 @@ Example:
 
 ```text
 orch, orchestration -> orchestration
-review, code review -> consreview
+review, code review -> review-workflow
 research, deep research -> research workflow
 simple, light, quick -> tier modifier
 ```
@@ -162,4 +176,3 @@ Run the smoke checks from docs/smoke-checks.md.
 Do not print secrets.
 Report changed files and any unresolved conflicts.
 ```
-

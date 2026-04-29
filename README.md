@@ -103,10 +103,10 @@ Example:
 Both can map to:
 
 ```bash
-synthesize_consilium.sh <dir> --mode review --tier light
+your-review-pipeline --mode review --tier light
 ```
 
-The important rule is that modifiers such as `simple`, `light`, or `quick` are not standalone skills. They modify the selected workflow.
+This is a placeholder for your own review backend. It could be a Claude command, a Codex skill, a shell script, or a multi-agent review pipeline. The important rule is that modifiers such as `simple`, `light`, or `quick` are not standalone skills. They modify the selected workflow.
 
 ## Research Failure Rule
 

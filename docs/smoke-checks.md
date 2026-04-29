@@ -43,8 +43,8 @@ Expected:
 In a workspace project, check local workflow files:
 
 ```bash
-find . -path './.claude/skills/*/SKILL.md' -maxdepth 4 -print
-find . -path './.claude/commands/*.md' -maxdepth 4 -print
+find . -maxdepth 4 -path './.claude/skills/*/SKILL.md' -print
+find . -maxdepth 4 -path './.claude/commands/*.md' -print
 ```
 
 Expected: project-local `.claude/skills` and `.claude/commands` outrank global copies.
@@ -58,4 +58,3 @@ state.md -> session_report.md -> findings.md -> plan_next_session.md -> todo_nex
 ```
 
 Expected: the agent continues from handoff constraints instead of reconstructing context from scratch.
-
