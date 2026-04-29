@@ -21,6 +21,12 @@ Codex uses its own native instruction layer:
 
 If you copy everything blindly from Claude to Codex, instructions drift and precedence becomes unclear. If you ignore Claude files, you lose useful workflow knowledge. This bridge pattern gives each file a clear job.
 
+## Fresh Codex First Run
+
+For a new Codex install or first Codex chat in an existing Claude Code repo, start with [INSTALL.md](INSTALL.md). The setup is intentionally instruction-only: back up `~/.codex/AGENTS.md`, merge the bridge rules from `examples/global-codex-AGENTS.md`, then add a workspace `AGENTS.md`.
+
+This repository does not delete, move, or sync Claude skills. It only teaches Codex how to find and follow existing Claude workflow files safely.
+
 ## Core Idea
 
 Use `AGENTS.md` as the Codex-native routing layer.

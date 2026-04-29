@@ -4,6 +4,16 @@ This guide is written for an AI agent or maintainer setting up the Codex to Clau
 
 The bridge does not install a runtime daemon. It installs durable instructions and templates so Codex can correctly inspect and follow Claude workflow files when needed.
 
+## First Codex Launch
+
+If this is a fresh Codex install or the first Codex chat in a Claude Code workspace:
+
+1. Use stable paths. Do not rely on the generated chat working directory staying alive.
+2. Back up `~/.codex/AGENTS.md` before editing it.
+3. Merge, do not replace, the bridge section from `examples/global-codex-AGENTS.md`.
+4. Add or update the workspace `AGENTS.md` from `examples/workspace-AGENTS.md`.
+5. Leave Claude skills and commands where they are. This bridge does not delete or sync skills.
+
 ## Prerequisites
 
 - A repository that uses, or plans to use, Codex.
