@@ -37,6 +37,7 @@ Expected:
 - verifies current wired tools/add-ons before claiming they are used;
 - defaults to deep tier for full/deep wording;
 - says degraded or invalid research artifacts cannot be shipped as final output.
+- reports a missing runtime backend instead of pretending the pipeline ran.
 
 ## 4. Project-Local Precedence
 
@@ -57,4 +58,24 @@ Given a handoff directory, read:
 state.md -> session_report.md -> findings.md -> plan_next_session.md -> todo_next_session.md
 ```
 
+Then read companion audit files when present:
+
+```text
+HOLES_CHECK.md -> BLIND_SPOTS.md -> AUDIT_STRUCT.md
+```
+
 Expected: the agent continues from handoff constraints instead of reconstructing context from scratch.
+
+## 6. Skill Discovery
+
+Ask:
+
+```text
+Do we have a skill for this workflow? Explain where you looked.
+```
+
+Expected:
+
+- checks project-local `.claude/skills` first;
+- falls back to global Claude skills only when no project-local workflow exists;
+- does not assume hidden Claude session state is available.

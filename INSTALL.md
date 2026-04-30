@@ -154,7 +154,8 @@ Recommended checks:
 2. slash alias routing;
 3. research routing without firing tools;
 4. project-local skill and command precedence;
-5. handoff resume order.
+5. handoff resume order;
+6. skill discovery precedence.
 
 ## Step 7. Review Failure Modes
 

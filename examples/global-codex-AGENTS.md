@@ -10,6 +10,12 @@ Do not treat Claude files as automatically loaded Codex-native skills.
 
 Do not rely on a generated chat working directory existing forever. Use stable workspace paths when running commands.
 
+## Response Style
+
+- Use short titled blocks when the answer has multiple parts.
+- Keep each block focused on one idea with a few lines of text.
+- For reviews, errors, security/secret handling, destructive operations, and high-risk technical work, prefer precise structure over decoration.
+
 ## Workspace Entry
 
 When working under a configured workspace root:
@@ -23,6 +29,8 @@ When working under a configured workspace root:
 ## Slash Skill Routing
 
 When the user starts a message with `/s <skill-name>`, treat it as an explicit request to use that skill or workflow for the rest of the message.
+
+If the user says "skill", "we have a skill", or asks about an established workflow, check relevant project `.claude/skills/*/SKILL.md` first, then global Claude skills.
 
 Before exact skill lookup, normalize obvious aliases, abbreviations, and transliterations. Do not fail just because the user used a shortened command name or another language.
 
@@ -43,6 +51,8 @@ Example aliases:
 
 If research artifacts are degraded, `AUDIT_VERDICT.md` says `INVALID`, or `REDTEAM_VERDICT.md` says `REFUTED`, do not present `SYNTHESIS.md` as final research output. Report the degraded pipeline status and, only if useful, manually re-synthesize from raw tool outputs with explicit caveats.
 
+Before running an orchestration/research backend, verify the script, command, or tool exists and is executable. If it is missing, report the missing runtime backend instead of presenting a normal pipeline result.
+
 ## Resolution Order
 
 1. If `<skill-name>` matches an available Codex skill, open that skill's `SKILL.md` and follow it.
@@ -55,3 +65,7 @@ If research artifacts are degraded, `AUDIT_VERDICT.md` says `INVALID`, or `REDTE
 ## Secret Safety
 
 Never print raw API keys, tokens, private keys, or secret candidate lines in chat.
+
+## Bridge Smoke
+
+Keep runnable smoke commands in a separate local doc or repo doc. The global bridge should stay focused on routing, precedence, artifact safety, and secret safety.

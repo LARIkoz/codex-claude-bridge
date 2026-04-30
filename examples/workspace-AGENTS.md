@@ -18,6 +18,7 @@ When continuing a Claude handoff, read files in this order when present:
 3. `findings.md`
 4. `plan_next_session.md`
 5. `todo_next_session.md`
+6. Audit/companion files such as `HOLES_CHECK.md`, `BLIND_SPOTS.md`, and `AUDIT_STRUCT.md`
 
 Treat explicit handoff constraints, abort conditions, and "do not" notes as active instructions for the resumed session.
 
@@ -28,6 +29,7 @@ Treat explicit handoff constraints, abort conditions, and "do not" notes as acti
 - Prefer project-local skills over global copies when both exist.
 - Prefer project-local `.claude/commands/*.md` over global command copies when a slash procedure is project-specific.
 - Do not assume Claude cloud memory, live Claude session state, or hidden UI context is available unless it exists on disk.
+- Global Claude skills are also usable when the user names a skill, asks whether a skill exists, or uses a known trigger phrase from a global skill.
 
 ## Research Routing
 
@@ -45,4 +47,3 @@ When the user asks for research, deep research, full research, or similar high-e
 - Never print raw API keys, tokens, private keys, or secret candidate lines in chat.
 - Preserve append-only logs, evidence folders, handoffs, and key archives unless the user explicitly asks for cleanup.
 - Keep changes scoped to the active task and avoid unrelated refactors.
-
